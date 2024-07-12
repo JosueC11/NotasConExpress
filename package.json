@@ -1,0 +1,23 @@
+{
+  "name": "notas",
+  "version": "1.0.0",
+  "description": "Pagina web para notas",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JS",
+    "NODE",
+    "Y",
+    "EXPRESS"
+  ],
+  "author": "Josué Castillo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
