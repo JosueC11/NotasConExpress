@@ -21,30 +21,20 @@ app.get('/notas', (req, res) => {
 });
 
 app.get('/notas/id', (req, res) => {
-    res.sendFile(path.join(PUBLIC,'home.html'));
+    res.sendFile();
 });
 
 // POST
 app.post('/notas', (req, res) => {
-    res.sendFile(path.join(PUBLIC,'home.html'));
+    res.sendFile();
 });
 
 // PUT
 app.put('/notas/id', (req, res) => {
-    res.sendFile(path.join(PUBLIC,'home.html'));
+    res.sendFile();
 });
 
 // DELETE
 app.delete('/notas/id', (req, res) => {
-    res.sendFile(path.join(PUBLIC,'home.html'));
+    res.sendFile();
 });
-
-
-let nota = {
-    idNota: 0,
-    titulo: '',
-    contenido: '',
-    fechaCreacion: '',
-    fechaUltimaModificacion: '',
-    Etiquetas: {}
-}
