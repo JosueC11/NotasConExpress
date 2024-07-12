@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    background-color: #1d202b;
+    color: white;
+}
+
+.plantilla{
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.plantilla header {
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+}
+
+.plantilla aside {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: center;
+    height: 85vh;
+    width: 400px;
+    border-radius: 1px solid white;
+}
+
+.plantilla main {
+    grid-column: 2 / 4;
+    height: 85vh;
+}
+
+.plantilla footer {
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+}
