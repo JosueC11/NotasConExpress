@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Página Web Notas</title>
+</head>
+<body>
+    <div class="plantilla">
+        <header>
+            <div class="titulos">
+                <h1 class="titulo">Josuu Notes</h1>
+            </div>
+        </header>
+        <aside class="borde">
+            <div class="opciones-aside">   
+                <input  style="height: 25px;" type="texto" class="borde"/>  
+                <a class="borde boton-filtrar deshabilitado">Filtrar</a>
+                <a class="borde boton-agregar deshabilitado" href="/crearNota">Agregar Nota</a>
+            </div>
+        </aside>
+        <main>
+            <div class="contenedor-formulario">
+                <h3>Creando una nota</h3>
+                <form id="formulario" class="borde" action="/notas" method="post">
+                    <label for="">Titulo de Nota</label>         
+                    <input class="borde" style="width: 200px;height: 35px;" type="text"> 
+                    <label for="">Contenido</label>         
+                    <textarea class="borde" style="width: 200px;max-width: 300px;height: 100px;max-height: 200px;"></textarea>
+                    <label for="">Etiquetas</label>         
+                    <input class="borde" style="width: 200px;height: 35px;" type="text">  
+                    <button id="agregar" class="borde">Agregar</button>   
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div class="opciones-aside">     
+                <h3>Mantente organizado y guarda todas tus notas importantes aquí!! &copy;</h3>
+            </div>
+        </footer>  
+    </div>
+</body>
+</html>

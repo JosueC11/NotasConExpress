@@ -6,18 +6,22 @@ const PUBLIC = path.join(__dirname,'public');
 const PUERTO = 3000;
 const app = express();
 
+app.use(express.urlencoded({ extended: true}));
 app.use(express.static(PUBLIC));
 
 app.listen(PUERTO, () => {
     console.log(`Escuchando en el puerto: ${PUERTO}`);
 });
 
-
 // API //
 
 // GET
 app.get('/notas', (req, res) => {
     res.sendFile(path.join(PUBLIC,'home.html'));
+});
+
+app.get('/crearNota', (req, res) => {
+    res.sendFile(path.join(PUBLIC,'actualizar.html'));
 });
 
 app.get('/notas/id', (req, res) => {

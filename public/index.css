@@ -11,46 +11,122 @@ body {
     gap: 40px;
 }
 
-.border {
+.borde {
     border: 1px white solid;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(255, 255, 255, 0.5);
+}
+
+.titulos {
+    display: flex;
+    justify-items: start;
+    margin-left: 80px;
 }
 
 .contenedor {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 20px;
+    height: auto;
 }
 
 .plantilla header {
     grid-column: 1 / 4;
     display: flex;
-    justify-content: center;
-    height: 10vh;
+    height: 50px;
+    padding-top: 30px;
+    gap: 50px;
 }
 
 .plantilla aside {
     grid-column: 1 / 2;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
+    height: 300px;
     width: 250px;
+    margin-left: 40px;
+    gap: 20px;
+}
+
+.opciones-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 30px;
+    gap: 20px
+}
+
+.boton-agregar {
+    margin-top: auto;
+    margin-bottom: 50px;
+    background-color: rgb(33, 99, 33);
+    height: 20px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;  
+    padding: 3px;
+}
+
+#boton-actualizar {
+    background-color: rgb(138, 139, 50);
+    height: 20px;
+    width: 85px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;  
+    padding: 3px;
+}
+
+.boton-filtrar {
+    background-color: #3a5f6f;
+    color: white;  
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;  
+    padding: 3px;
+}
+
+#agregar {
+    background-color: rgb(33, 99, 33);
+    color: white;
+    height: 25px;
+    width: 100px;
+    font-size: 14px;  
+    padding: 3px;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.deshabilitado {
+    background-color: gray;
+    pointer-events: none;
 }
 
 .plantilla main {
     grid-column: 2 / 4;
-    height: 75vh;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .plantilla footer {
     grid-column: 1 / 4;
     display: flex;
     justify-content: center;
-    height: 5vh;
+    height: 50px;
+    padding-bottom: 25px;
 }
 
 .notas {
@@ -58,8 +134,10 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 5px;
-    background-color: darkcyan;
+    background-color: #3a5f6f;
     padding: 10px;
+    height: 300px;
+    width: auto;
 }
 
 .notas h2 {
@@ -92,14 +170,42 @@ body {
     grid-row: 4 / 5;
     gap: 7px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    margin-right: 25px;
 }
 
-@media(max-width < 700px) {
+.contenedor-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 700px;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    width: 300px;
+    background-color: #3a5f6f;
+
+}
+
+@media(max-width: 1200px) {
     .contenedor {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media(max-width: 900px) {
+    .contenedor {
+        display: grid;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         gap: 20px;
     }
