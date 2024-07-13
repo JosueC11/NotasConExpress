@@ -2,6 +2,7 @@ body {
     margin: 0;
     background-color: #1d202b;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .plantilla{
@@ -111,6 +112,19 @@ body {
     cursor: pointer;
 }
 
+#boton-cancelar {
+    background-color: rgb(97, 32, 32);
+    color: white;
+    height: 17px;
+    width: 100px;
+    font-size: 14px;  
+    padding: 3px;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;  
+    text-decoration: none;
+}
+
 .deshabilitado {
     background-color: gray;
     pointer-events: none;
@@ -119,6 +133,7 @@ body {
 .plantilla main {
     grid-column: 2 / 4;
     margin-right: 40px;
+    height: auto;
 }
 
 .plantilla footer {
@@ -178,19 +193,35 @@ body {
 .contenedor-formulario {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 700px;
+    justify-content: flex-start;
+    align-items: center; 
+}
+
+.contenedor-formulario h3 {
+    margin-top: 0;
+    margin-bottom: auto;
+    height: auto;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 #formulario {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 30px;
+    gap: 10px;
+    padding: 10px;
     width: 300px;
     background-color: #3a5f6f;
 
+}
+
+.botones-formulario {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 @media(max-width: 1200px) {

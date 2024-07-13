@@ -30,7 +30,23 @@ app.get('/notas/id', (req, res) => {
 
 // POST
 app.post('/notas', (req, res) => {
-    res.sendFile();
+
+    let tituloNota = req.body.titulo;
+    let contenidoNota = req.body.contenido;
+    let etiquetaNota = req.body.etiqueta;
+
+    let nota = {titulo: tituloNota,
+                contenido: contenidoNota,
+                etiqueta: etiquetaNota,
+    };
+
+    array.push(nota);
+
+    array.forEach(iteam => {
+        console.log(iteam.titulo);
+    });
+
+    res.sendFile(path.join(PUBLIC, 'home.html'));
 });
 
 // PUT
@@ -42,3 +58,10 @@ app.put('/notas/id', (req, res) => {
 app.delete('/notas/id', (req, res) => {
     res.sendFile();
 });
+
+
+let array = [{ titulo: 'Nota importante',
+    contenido: 'Mañana tengo examen de progra',
+    etiqueta: 'Universidad',
+}];
+
