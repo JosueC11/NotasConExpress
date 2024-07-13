@@ -13,11 +13,22 @@ app.listen(PUERTO, () => {
     console.log(`Escuchando en el puerto: ${PUERTO}`);
 });
 
+
+
+
+
+
+
+
 // API //
 
 // GET
 app.get('/notas', (req, res) => {
     res.sendFile(path.join(PUBLIC,'home.html'));
+});
+
+app.get('/api/notas', (req, res) => {
+    res.json(array);
 });
 
 app.get('/crearNota', (req, res) => {
@@ -31,20 +42,17 @@ app.get('/notas/id', (req, res) => {
 // POST
 app.post('/notas', (req, res) => {
 
-    let tituloNota = req.body.titulo;
-    let contenidoNota = req.body.contenido;
-    let etiquetaNota = req.body.etiqueta;
+    let {titulo, contenido, etiqueta} = req.body;
 
-    let nota = {titulo: tituloNota,
-                contenido: contenidoNota,
-                etiqueta: etiquetaNota,
+    let nota = {
+        titulo: titulo,
+        contenido: contenido,
+        fechaCreacion: 'Fecha de Creación: ' + new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
+        fechaModificacion: 'Fecha Modificación: ' + new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
+        etiqueta: etiqueta
     };
 
     array.push(nota);
-
-    array.forEach(iteam => {
-        console.log(iteam.titulo);
-    });
 
     res.sendFile(path.join(PUBLIC, 'home.html'));
 });
@@ -60,8 +68,19 @@ app.delete('/notas/id', (req, res) => {
 });
 
 
-let array = [{ titulo: 'Nota importante',
-    contenido: 'Mañana tengo examen de progra',
-    etiqueta: 'Universidad',
-}];
+
+
+
+// Datos
+let array = [
+    { 
+        titulo: 'Nota importante',
+        contenido: 'Mañana tengo examen de progra',
+        fechaCreacion: new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
+        fechaModificacion: new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
+        etiqueta: 'Universidad',
+    }
+];
+
+
 

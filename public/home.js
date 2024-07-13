@@ -1,0 +1,53 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    fetch('/api/notas')
+    .then(response => {
+        return response.json();
+    })
+    .then(
+        notas => {
+
+            const divContenedor = document.getElementById('contenedor-notas');
+    
+            notas.forEach(item => {
+    
+                const divNota = document.createElement('div');
+                divNota.classList.add('notas', 'borde');
+    
+                const titulo = document.createElement('h2');
+                titulo.textContent = item.titulo;
+    
+                const contenido = document.createElement('p');
+                contenido.textContent = item.contenido;
+    
+                const fechaCreacion = document.createElement('h4');
+                fechaCreacion.textContent = item.fechaCreacion;
+    
+                const fechaModificacion = document.createElement('h4');
+                fechaModificacion.textContent = item.fechaModificacion;
+    
+                const etiquetas = document.createElement('h5');
+                etiquetas.textContent = item.etiqueta;
+    
+                const divtBotonActualizar = document.createElement('div');
+    
+                const botonActualizar = document.createElement('a');
+    
+                botonActualizar.textContent = 'Actualizar';
+                botonActualizar.classList.add('borde');
+                botonActualizar.id = 'boton-actualizar';
+        
+                divtBotonActualizar.appendChild(botonActualizar);
+        
+                divNota.appendChild(titulo);
+                divNota.appendChild(contenido);
+                divNota.appendChild(fechaCreacion);
+                divNota.appendChild(fechaModificacion);
+                divNota.appendChild(etiquetas);
+                divNota.appendChild(divtBotonActualizar);
+          
+                divContenedor.appendChild(divNota);
+            });
+        }
+    );
+});
