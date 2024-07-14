@@ -20,6 +20,7 @@ app.listen(PUERTO, () => {
 
 
 
+
 // API //
 
 // GET
@@ -27,24 +28,32 @@ app.get('/notas', (req, res) => {
     res.sendFile(path.join(PUBLIC,'home.html'));
 });
 
+app.get('/crearNota', (req, res) => {
+    res.sendFile(path.join(PUBLIC,'crear.html'));
+});
+
+app.get('/notasActualizar', (req, res) => {
+    res.sendFile(path.join(PUBLIC,'actualizar.html'));
+});
+
 app.get('/api/notas', (req, res) => {
     res.json(array);
 });
 
-app.get('/crearNota', (req, res) => {
-    res.sendFile(path.join(PUBLIC,'actualizar.html'));
-});
-
-app.get('/notas/id', (req, res) => {
-    res.sendFile();
+app.get('/api/notas/:id', (req, res) => {
+    let id = parseInt(req.params.id, 10);
+    let nota = array.find(n => n.id === id);
+    res.json(nota);
 });
 
 // POST
 app.post('/notas', (req, res) => {
 
     let {titulo, contenido, etiqueta} = req.body;
+    let id = 1;
 
     let nota = {
+        id : id,
         titulo: titulo,
         contenido: contenido,
         fechaCreacion: 'Fecha de Creación: ' + new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
@@ -52,19 +61,27 @@ app.post('/notas', (req, res) => {
         etiqueta: etiqueta
     };
 
+    id++;
+
     array.push(nota);
 
     res.sendFile(path.join(PUBLIC, 'home.html'));
 });
 
 // PUT
-app.put('/notas/id', (req, res) => {
+app.put('/notas/id', (req, res) => { 
     res.sendFile();
 });
 
 // DELETE
 app.delete('/notas/id', (req, res) => {
-    res.sendFile();
+    let id = req.body.id;
+    for (let iterator = 0; i < array.length; i++) {
+        if(array[i].id === id){
+            array.slice(i,1);
+        }    
+    }
+    res.sendFile(path.join(PUBLIC,'home.html'));
 });
 
 
@@ -74,6 +91,7 @@ app.delete('/notas/id', (req, res) => {
 // Datos
 let array = [
     { 
+        id: 0,
         titulo: 'Nota importante',
         contenido: 'Mañana tengo examen de progra',
         fechaCreacion: new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),

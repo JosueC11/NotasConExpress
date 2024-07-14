@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
             notas.forEach(item => {
     
+                const idInput = document.createElement('input');
+                idInput.value = item.id;
+                idInput.hidden = true;
+
                 const divNota = document.createElement('div');
                 divNota.classList.add('notas', 'borde');
     
@@ -35,10 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
                 botonActualizar.textContent = 'Actualizar';
                 botonActualizar.classList.add('borde');
+                botonActualizar.href = `/notasActualizar/${idInput.value}`;
                 botonActualizar.id = 'boton-actualizar';
         
                 divtBotonActualizar.appendChild(botonActualizar);
         
+                divNota.appendChild(idInput);
                 divNota.appendChild(titulo);
                 divNota.appendChild(contenido);
                 divNota.appendChild(fechaCreacion);
