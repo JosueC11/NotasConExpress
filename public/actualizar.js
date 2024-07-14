@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const urlParam = new URLSearchParams(window.location.search);
-    const id = urlParam.get('id');
+    const path = window.location.pathname;
+    const id = path.split('/').pop();
 
     fetch(`/api/notas/${id}`)
     .then(response => {
@@ -10,13 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(
         nota => {
 
+            const id = document.getElementById('id');
             const titulo = document.getElementById('titulo');
             const contenido = document.getElementById('contenido');
             const etiqueta = document.getElementById('etiqueta');
 
-            titulo.textContent = nota.titulo;
+            id.value = nota.id;
+            titulo.value = nota.titulo;
             contenido.textContent = nota.contenido;
-            etiqueta.textContent = nota.etiqueta;
+            etiqueta.value = nota.etiqueta;
         }
     );
 });
+
+function Eliminar() {
+
+    let id = document.getElementById('id');
+
+    fetch(`/notas/${id.value}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.href = '/home.html';
+        }
+    })
+}

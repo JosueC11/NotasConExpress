@@ -7,7 +7,7 @@ body {
 
 .plantilla{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     gap: 40px;
 }
@@ -196,6 +196,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center; 
+    height: 75vh;
 }
 
 .contenedor-formulario h3 {

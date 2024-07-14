@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <script src="./actualizar.js"></script>
+    <link rel="stylesheet" href="/index.css">
+    <script src="/actualizar.js"></script>
     <title>Página Web Notas</title>
 </head>
 <body>
@@ -23,7 +23,8 @@
         </aside>
         <main>
             <div class="contenedor-formulario">
-                <form id="formulario" class="borde" action="/notas" method="post">
+                <form id="formulario" class="borde" action="/notas" method="put">
+                    <input id="id" name="id" hidden class="borde" style="width: 200px;height: 35px;" type="text">
                     <label for="tituloNota">Titulo de Nota</label>         
                     <input id="titulo" name="titulo" class="borde" style="width: 200px;height: 35px;" type="text"> 
                     <label for="contenido">Contenido</label>         
@@ -32,9 +33,10 @@
                     <input id="etiqueta" name="etiqueta" class="borde" style="width: 200px;height: 35px;" type="text">  
                     <div class="botones-formulario">
                         <button id="agregar" class="borde">Actualizar</button>  
-                        <a id="boton-cancelar" class="borde" href="/notas">Eliminar</a> 
                     </div>
                 </form>
+                <br>
+                <a id="boton-cancelar" class="borde" onclick="Eliminar()">Eliminar</a> 
             </div>
         </main>
         <footer>
