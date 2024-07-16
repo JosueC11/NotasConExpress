@@ -24,11 +24,11 @@
             <div class="contenedor-formulario">
                 <form id="formulario" class="borde" action="api/nota" method="post">
                     <label for="tituloNota">Titulo de Nota</label>         
-                    <input id="titulo" name="titulo" class="borde" style="width: 200px;height: 35px;" type="text"> 
+                    <input id="titulo" name="titulo" maxlength="200" class="borde" required style="width: 200px;height: 35px;" type="text"> 
                     <label for="contenido">Contenido</label>         
-                    <textarea id="contenido" name="contenido" class="borde" style="width: 200px;max-width: 300px;height: 100px;max-height: 200px;"></textarea>
+                    <textarea id="contenido" name="contenido" class="borde" required style="width: 200px;max-width: 300px;height: 100px;max-height: 200px;"></textarea>
                     <label for="etiqueta">Etiquetas</label>         
-                    <input id="etiqueta" name="etiqueta" class="borde" style="width: 200px;height: 35px;" type="text">  
+                    <input id="etiqueta" name="etiqueta" maxlength="100" class="borde" style="width: 200px;height: 35px;" type="text">  
                     <div class="botones-formulario">
                         <button id="agregar" class="borde">Agregar</button>  
                         <a id="boton-cancelar" class="borde" href="/notas">Cancelar</a> 

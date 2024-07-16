@@ -41,11 +41,22 @@ app.get('/api/notas', (req, res) => {
 //GET traer 1 dato
 app.get('/api/nota/:id', (req, res) => {
     let id = parseInt(req.params.id, 10);
-    let nota = array.find(n => n.id === id);
+    let nota = array.find(nota => nota.id === id);
     if (nota) {
         res.status(200).json(nota);
     } else {
         res.status(404).json({ error: 'Nota no encontrada' });
+    }
+});
+
+//GET traer datos filtrados
+app.post('/api/nota/filtro', (req, res) => {
+    let filtro = req.body.filtro;
+    let notas = array.filter(nota => nota.titulo.includes(filtro));
+    if (notas.length > 0) {
+        res.status(200).json(notas);
+    } else {
+        res.status(200).json(array);
     }
 });
 
@@ -119,10 +130,15 @@ let array = [
 
 function getFecha() {
     let fecha = new Date();
-    return fecha.getDay() + '/' + fecha.getMonth() + '/' + fecha.getFullYear() + ' - ' + fecha.getHours() + ':' + fecha.getMinutes();
+    let minutos = fecha.getMinutes();
+    minutosFormato = minutos > 10 ? minutos : '0' + minutos
+    let fechaFormato = fecha.getDay() + '/' + fecha.getMonth() + '/' + fecha.getFullYear() + ' - ' + fecha.getHours() + ':' +  minutosFormato;
+    return fechaFormato;
 }
 
 function getId() {
     return idConsecutivo++;
 }
+
+
 
